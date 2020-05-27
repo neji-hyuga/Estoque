@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ProdutoService {
 
@@ -15,5 +16,8 @@ public interface ProdutoService {
 
     @POST("produto")
     Call<Produto> salva(@Body Produto produto);
+
+    @POST("produto/ {id}")
+    Call<Produto> edita(@Path("id") long id, @Body Produto produto);
 
 }
